@@ -6,6 +6,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Tag from "./community/Tag";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -68,7 +69,7 @@ export default function MenuBar() {
                 </AppBar>
             </Box>
             <TabPanel value={value} index={0} dir={theme.direction} style={{backgroundColor: '#eff0f3'}}>
-                게시물이 와야함
+                <Tag/>
             </TabPanel>
             <TabPanel value={value} index={1} dir={theme.direction} style={{backgroundColor: '#eff0f3'}}>
                 준비 중....
