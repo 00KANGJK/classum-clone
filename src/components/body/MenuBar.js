@@ -7,6 +7,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Tag from "./community/Tag";
+import PostCard from "./community/post/PostCard";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -68,8 +69,8 @@ export default function MenuBar() {
                     </Tabs>
                 </AppBar>
             </Box>
-            <TabPanel value={value} index={0} dir={theme.direction} style={{backgroundColor: '#eff0f3'}}>
-                <Tag/>
+            <TabPanel value={value} index={0} dir={theme.direction} style={{backgroundColor: '#eff0f3',display:'flex',justifyContent: 'center',}}>
+                <PostCard/>
             </TabPanel>
             <TabPanel value={value} index={1} dir={theme.direction} style={{backgroundColor: '#eff0f3'}}>
                 준비 중....

@@ -1,22 +1,16 @@
 import React, { useState } from "react";
-import { Checkbox, FormControlLabel, Box } from "@mui/material";
-import Typography from "@mui/material/Typography";
+import { Checkbox, FormControlLabel, Box, Typography } from "@mui/material";
+import SvgTagIcon from "./SvgTagIcon";
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 const Tag = () => {
     const [selectedTags, setSelectedTags] = useState([]);
-    const tags = ["tag1", "tag2", "tag3"];
+    const tags = ["PPS Camp", "전체공지", "나의 첫 웹 서비스"];
 
-    const handleToggle = (value) => () => {
-        const currentIndex = selectedTags.indexOf(value);
-        const newChecked = [...selectedTags];
-
-        if (currentIndex === -1) {
-            newChecked.push(value);
-        } else {
-            newChecked.splice(currentIndex, 1);
-        }
-
-        setSelectedTags(newChecked);
+    const handleToggle = (tag) => {
+        setSelectedTags((prevTags) =>
+            prevTags.includes(tag) ? prevTags.filter((t) => t !== tag) : [...prevTags, tag]
+        );
     };
 
     return (
@@ -26,12 +20,12 @@ const Tag = () => {
                     key={index}
                     control={
                         <Checkbox
-                            checked={selectedTags.indexOf(tag) !== -1}
-                            onChange={handleToggle(tag)}
+                            checked={selectedTags.includes(tag)}
+                            onChange={() => handleToggle(tag)}
                             name={tag}
                             color="default"
-                            checkedIcon={<span style={{color: 'black',fontSize:'18px',width: '18px',display: 'inline-block'}}>✔</span>}
-                            icon={<span style={{fontSize:'18px', fontWeight:'bold',color:'black',width: '18px',display: 'inline-block'}}>#</span>}
+                            checkedIcon={<CheckBoxIcon sx={{ fontSize: 18, color: 'black' }}/>}
+                            icon={<SvgTagIcon sx={{ fontSize: 18, fontWeight:'bold', color:'black' }}/>}
                         />
                     }
                     label={<Typography sx={{ fontWeight: 'bold' }}>{tag}</Typography>}
