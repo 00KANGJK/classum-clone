@@ -27,7 +27,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box sx={{ p: 3 }}>
-                    <Typography>{children}</Typography>
+                    <Typography component="div">{children}</Typography>
                 </Box>
             )}
         </div>
@@ -72,15 +72,14 @@ export default function MenuBar() {
                     <Tabs
                         value={value}
                         onChange={handleChange}
-                        textColor="black"
                         variant="fullWidth"
                         aria-label="full width tabs example"
                         TabIndicatorProps={{ style: { backgroundColor: '#000000' } }}
                         style={{color:"black"}}
                     >
-                        <Tab label={value === 0 ? <TabLabel icon={<ForumIcon fontSize="medium" />} text="커뮤니티" /> : <TabLabel icon={<ForumOutlinedIcon fontSize="medium" />} text="커뮤니티" />} {...a11yProps(0)} style={{fontWeight:"bold", fontSize:"16px"}} />
-                        <Tab label={value === 1 ? <TabLabel icon={<BeenhereIcon fontSize="medium" />} text="설문" /> : <TabLabel icon={<BeenhereOutlinedIcon fontSize="medium" />} text="설문" />} {...a11yProps(1)} style={{fontWeight:"bold", fontSize:"16px"}}/>
-                        <Tab label={value === 2 ? <TabLabel icon={<SettingsIcon fontSize="medium" />} text="설정" /> : <TabLabel icon={<SettingsOutlinedIcon fontSize="medium" />} text="설정" />} {...a11yProps(2)} style={{fontWeight:"bold", fontSize:"16px"}}/>
+                        <Tab label={value === 0 ? <TabLabel icon={<ForumIcon fontSize="medium" />} text="커뮤니티" /> : <TabLabel icon={<ForumOutlinedIcon fontSize="medium" />} text="커뮤니티" />} {...a11yProps(0)} style={{fontWeight:"bold", fontSize:"16px", color:'black'}} />
+                        <Tab label={value === 1 ? <TabLabel icon={<BeenhereIcon fontSize="medium" />} text="설문" /> : <TabLabel icon={<BeenhereOutlinedIcon fontSize="medium" />} text="설문" />} {...a11yProps(1)} style={{fontWeight:"bold", fontSize:"16px",color:'black'}}/>
+                        <Tab label={value === 2 ? <TabLabel icon={<SettingsIcon fontSize="medium" />} text="설정" /> : <TabLabel icon={<SettingsOutlinedIcon fontSize="medium" />} text="설정" />} {...a11yProps(2)} style={{fontWeight:"bold", fontSize:"16px",color:'black'}}/>
                     </Tabs>
                 </AppBar>
             </Box>
